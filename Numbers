@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Numbers {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int num, count = 0, sum = 0;
+        double average;
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;
+
+        System.out.print("Enter a number (0 to stop): ");
+        num = input.nextInt();
+
+        while (num != 0) {
+            if (num < min) {
+                min = num;
+            }
+            if (num > max) {
+                max = num;
+            }
+            sum += num;
+            count++;
+
+            System.out.print("Enter a number (0 to stop): ");
+            num = input.nextInt();
+        }
+
+        if (count > 0) {
+            average = (double) sum / count;
+            System.out.printf("The smallest number is %d%n", min);
+            System.out.printf("The largest number is %d%n", max);
+            System.out.printf("The average is %.2f%n", average);
+        } else {
+            System.out.println("No numbers were entered.");
+        }
+    }
+}
